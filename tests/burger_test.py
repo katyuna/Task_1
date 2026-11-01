@@ -6,7 +6,7 @@ from praktikum.burger import Burger
 
 
 class TestBurger:
-    #булочка устанавливается
+    # булочка устанавливается
     def test_set_buns_sets_bun(self):
         burger = Burger()
         bun = Mock()
@@ -28,28 +28,28 @@ class TestBurger:
     def test_remove_ingredient_removes_ingredient_by_index(self):
         burger = Burger()
         sauce = Mock()
-        salat = Mock()
+        salad = Mock()
         burger.add_ingredient(sauce)
-        burger.add_ingredient(salat)
+        burger.add_ingredient(salad)
 
         burger.remove_ingredient(0)
 
-        assert burger.ingredients == [salat]
+        assert burger.ingredients == [salad]
 
     # ингредиент переносится
     def test_move_ingredient_changes_order(self):
         burger = Burger()
         sauce = Mock()
-        salat = Mock()
+        salad = Mock()
         sausage = Mock()
         burger.add_ingredient(sauce)
-        burger.add_ingredient(salat)
+        burger.add_ingredient(salad)
         burger.add_ingredient(sausage)
 
         # переносим ингредиент с индексом 0 в конец
         burger.move_ingredient(0, 2)
 
-        assert burger.ingredients == [salat, sausage, sauce]
+        assert burger.ingredients == [salad, sausage, sauce]
 
     # цена бургера = цена булочки * 2  + цена всех ингредиентов
     # три случая: без ингредиентов, с одним и с несколькими
